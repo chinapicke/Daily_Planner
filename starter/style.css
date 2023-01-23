@@ -69,7 +69,7 @@ textarea {
   font-size: 30px;
   transition: all 0.3s ease-in-out;
 }
-
+/* Classes with the different colour backgrounds to represent classes being added in the JS file  */
 .past {
   background-color: #d3d3d3;
   color: black;

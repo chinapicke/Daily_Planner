@@ -23,6 +23,7 @@ $.each(hourRow, function(){
         // Different classes have the formatting for the row colour in the CSS
         $(this).next().addClass('present')
     }
+    
     else if (hourId < currentTime){
         $(this).next().addClass('past')
     }
