@@ -16,6 +16,7 @@ Time slot colour code:
 Grey- it is after the current time
 Red- it is currently that time
 Green- it is before the current time
+![Screenshot 2023-01-23 134208](https://user-images.githubusercontent.com/117565899/213980894-1420dd1c-9346-4357-9a6f-e62d80d34457.png)
 
 ## Contributions 
 https://api.jquery.com/
