@@ -13,21 +13,30 @@ var currentTime = parseInt(moment().format('HH'))
 let hourRow = $('.hour')
 
 // .each method to loop through each id hour and set it to a variable, instead of using for loop 
-$.each(hourRow, function(){
+$.each(hourRow, function () {
     // set id number to variable and convert the string into int so that it can be compared agains the current time
     // 'this' selects the attributes named if within hourRow variable 
+    var hour = $(this).text()
     var hourId = parseInt($(this).attr("id"))
+    var storage = localStorage.getItem(hour)
+    console.log(hour)
+    console.log(storage)
+    $("#"+hour).val(storage)
+    // let userInput = $(this).siblings('.user-input')
+    // var getStorage = localStorage.getItem($(this).text())
+    // // console.log(getStorage)
+    // userInput.val(getStorage)
     // console.log(hourId), to check that it is correctly prinitng out the number of the id
-    if (hourId === currentTime){
+    if (hourId === currentTime) {
         // Used next() as it selects elements with the matching element, in this case the hour class and adds it to the specific class
         // Different classes have the formatting for the row colour in the CSS
         $(this).next().addClass('present')
     }
-    
-    else if (hourId < currentTime){
+
+    else if (hourId < currentTime) {
         $(this).next().addClass('past')
     }
-    else if (hourId > currentTime){
+    else if (hourId > currentTime) {
         $(this).next().addClass('future')
     }
 })
@@ -40,14 +49,16 @@ let saveBtn = $('.saveBtn')
 //     console.log('Button clicked')
 // })
 
-saveBtn.on('click', function(e){
+
+saveBtn.on('click', function (e) {
     e.preventDefault();
     // assigned rowHour to represent hour with the userinput to shwo as an object in local storage
-    var rowHour = $(this).attr('#id')
-    let userInput = $('.user-input').value
+    var rowHour = $(this).siblings('.hour').text()
+    let userInput = $(this).siblings('.user-input').val()
+    console.log(rowHour)
+    console.log(userInput)
     // Only saves as undefined
     localStorage.setItem(rowHour, userInput)
     let savedInput = localStorage.getItem(rowHour)
     alert(savedInput)
 })
-
