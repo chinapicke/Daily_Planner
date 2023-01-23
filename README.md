@@ -8,7 +8,7 @@ This was also first project using jQuery, te challenge was trying to save the in
 
 ## Installation
 Open via browser.
-Link : 
+Link : https://chinapicke.github.io/Daily_Planner/
 
 ## Usage 
 Open the page, select on the time slot that you want to input text. When finished, clicked lock button on the specific row. You can refresh to page to check that it is stored. 
