@@ -14,14 +14,21 @@ let hourRow = $('.hour')
 
 // .each method to loop through each id hour and set it to a variable, instead of using for loop 
 $.each(hourRow, function () {
-    // set id number to variable and convert the string into int so that it can be compared agains the current time
-    // 'this' selects the attributes named if within hourRow variable 
+    // I put the below storage information into this function, as this functions loops through each hour row in the planner 
+    // Assign the variable hour to hold wha the user has input into the text box
     var hour = $(this).text()
-    var hourId = parseInt($(this).attr("id"))
+    // used the same line as in line 71, even though local storage is saved in a different function, local storage input is globally avaiable to use in other functions and even on different HTML pages
+    // put the variable hour into getItem, as we are getting the text of what the user has inputted 
     var storage = localStorage.getItem(hour)
+    // console to check that it is working
     console.log(hour)
     console.log(storage)
+    // Using "#"+hour, means that it can look through each id with a differnet number assigned to it 
+    // Find out the value of storage to then display it onto the page when it is refreshed
     $("#"+hour).val(storage)
+    // set id number to variable and convert the string into int so that it can be compared agains the current time
+    // 'this' selects the attributes named if within hourRow variable 
+    var hourId = parseInt($(this).attr("id"))
     // let userInput = $(this).siblings('.user-input')
     // var getStorage = localStorage.getItem($(this).text())
     // // console.log(getStorage)
@@ -52,13 +59,18 @@ let saveBtn = $('.saveBtn')
 
 saveBtn.on('click', function (e) {
     e.preventDefault();
-    // assigned rowHour to represent hour with the userinput to shwo as an object in local storage
+    // assigned rowHour to represent hour with the userinput to show as an object in local storage
+    // siblings() selects all the elements that have the same class as hour
+    // Use text() to get the written input that the user has put in, without text() it will show as undefined
+    // Used this instead of e.target, as e.target selects the div class and i class (the icon) which takes the page longer to save 
     var rowHour = $(this).siblings('.hour').text()
+    // Use val() instead of value(value used for vanilla HTML), to get the written content by the user
     let userInput = $(this).siblings('.user-input').val()
+    // Console log to check that it is not showing undefined
     console.log(rowHour)
     console.log(userInput)
-    // Only saves as undefined
+    // set the item as rowHour (e.g. 9am, 10am) and then the corresponding input from the user
     localStorage.setItem(rowHour, userInput)
+    // get the stored item and put it into a variable 
     let savedInput = localStorage.getItem(rowHour)
-    alert(savedInput)
 })
